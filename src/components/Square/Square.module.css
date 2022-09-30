@@ -1,18 +1,22 @@
 .square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
+  display: flex;
+  border: 5px solid #0f54a8;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 8rem;
+  font-family: 'Fredoka One', system-ui, Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 }
 
 .highlight {
-  background-color: yellow;
+  background-color: rgb(255, 251, 0);
+}
+
+.playerX {
+  color: var(--player-x-color)
+}
+
+.playerO {
+  color: var(--player-y-color)
 }
