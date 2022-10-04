@@ -18,8 +18,18 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "testing-library",
+        "jest-dom"
     ],
     "rules": {
+    },
+    "eslint.options": {
+        "configFile": ".eslintrc.json"
+    },
+    "eslint.validate": ["typescript", "typescriptreact"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
     }
+
 }
