@@ -1,13 +1,15 @@
 .square {
   display: flex;
-  border: 5px solid #0f54a8;
+  border: 5px solid var(--board-border-color);
   border-radius: 20px;
   justify-content: center;
   align-items: center;
-  font-size: 8rem;
+  font-size: 7rem;
   font-family: 'Fredoka One', system-ui, Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #FFF;
 
 }
+
 
 .highlight {
   background-color: rgb(255, 251, 0);
