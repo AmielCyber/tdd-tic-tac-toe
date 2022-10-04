@@ -24,10 +24,6 @@
     ],
     "rules": {
     },
-    "eslint.options": {
-        "configFile": ".eslintrc.json"
-    },
-    "eslint.validate": ["typescript", "typescriptreact"],
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     }
