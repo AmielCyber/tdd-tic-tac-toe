@@ -43,8 +43,3 @@ export class Game {
     return this.currentPlay;
   }
 }
-
-export type GameState = {
-  history: Game[];
-  moveNumber: number;
-};
