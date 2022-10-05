@@ -23,9 +23,5 @@
         "jest-dom"
     ],
     "rules": {
-    },
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
     }
-
 }
