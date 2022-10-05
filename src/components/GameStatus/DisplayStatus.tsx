@@ -1,32 +1,15 @@
 import type { GameStatus, Player } from "../../types/GameTypes";
 
 function getStatusMessageElement(gameStatus: GameStatus, nextPlayer: Player): JSX.Element {
-  let statusMessage: JSX.Element;
-
   if (gameStatus === "Pend") {
     // Game is pending.
-    statusMessage = <h1>Player {nextPlayer} is next.</h1>;
-  } else {
-    // Game is over.
-    if (gameStatus === "A Tie") {
-      statusMessage = (
-        <h1>
-          Game Over!
-          <br />
-          Is a tie game.
-        </h1>
-      );
-    } else {
-      statusMessage = (
-        <h1>
-          Game Over!
-          <br />
-          Player {gameStatus}
-        </h1>
-      );
-    }
+    return <h2>Player {nextPlayer} is next</h2>;
   }
-  return statusMessage;
+  if (gameStatus === "A Tie") {
+    return <h2>Game Over! Is a tie game.</h2>;
+  }
+  // Game is over.
+  return <h2>Game Over. Player {gameStatus}!</h2>;
 }
 
 type DisplayStatusProps = {
