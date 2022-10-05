@@ -4,7 +4,7 @@
 
   width: 30rem;
 	height: 30rem;
-	margin: 0 auto;
+	margin: auto;
 
   background-color: var(--board-border-color);
   border: 5px solid var(--board-border-color);
