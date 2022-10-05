@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,6 +8,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2{
+  font-family: "Rubik", "Ubuntu", "Roboto", sans-serif;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 1.5rem;
 }
 
 code {
@@ -18,5 +29,10 @@ code {
   --player-x-color: #1a65f0;
   --player-y-color: #ed2a2a;
   --board-border-color: rgb(0, 48, 96);
+  --button-color: rgb(12,  69, 133);
+  --prev-move-select-color: rgb(162, 7, 162);
+  --winning-square-color: rgb(238, 255, 0);
+  --button-hover-color:rgb(243, 249, 255); 
+  --background-color: #FFF;
 }
 
