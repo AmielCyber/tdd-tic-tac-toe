@@ -1,0 +1,25 @@
+.previousMoves {
+  display: flex;
+  flex-direction: column;
+}
+.previousMoves .sortButton {
+  margin-left: auto;
+}
+.previousMoves ol {
+  overflow: scroll;
+  max-height: 27rem;
+  padding: 0;
+}
+.previousMoves p{
+  margin: 0.2rem;
+}
+.moveButton {
+  margin-bottom: 0.2rem;
+}
+.currentMove {
+  color: purple;
+  font-weight: bolder;
+}
+li {
+  list-style:none;
+}

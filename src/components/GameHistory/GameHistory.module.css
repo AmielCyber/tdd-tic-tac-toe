@@ -1,0 +1,9 @@
+.history {
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem
+}
+.historyHeader h2{
+  text-align: center;
+}

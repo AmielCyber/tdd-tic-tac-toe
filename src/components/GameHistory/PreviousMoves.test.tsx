@@ -1,9 +1,10 @@
-import { getAllByRole, render, screen } from "@testing-library/react";
-import GameHistory from "./GameHistory";
-import { initialGameHistory } from "../../store/GameReducer";
-import { Game } from "../../types/GameTypes";
-import styles from "./GameInformation.module.css";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+// My imports.
+import { initialGameHistory } from "../../reducer/GameReducer";
+import PreviousMoves from "./PreviousMoves";
+import { Game } from "../../types/GameTypes";
+import cssClass from "./PreviousMoves.module.css";
 
 const onPrevMoveMock = (prevMove: number) => prevMove;
 
@@ -16,27 +17,27 @@ const getAFullGame = () => {
   return gameHistory;
 };
 
-describe("GameHistory component", () => {
+describe("PreviousMoves component", () => {
   const initialGame = initialGameHistory.slice();
-  test("has a game history header", () => {
+  test("has data-testid previousMoves for GameHistory testing.", () => {
     const mockCallBack = jest.fn(onPrevMoveMock);
-    render(<GameHistory gameHistory={initialGame} currentMoveNumber={0} onPrevMove={mockCallBack} />);
-    const headerElement = screen.getByRole("heading");
+    render(<PreviousMoves gameHistory={initialGame} currentMoveNumber={0} onPrevMove={mockCallBack} />);
+    const previousMovesComponent = screen.getByTestId("previousMoves");
 
-    expect(headerElement).toHaveTextContent(/game history/i);
+    expect(previousMovesComponent).toBeInTheDocument();
   });
-  test("has a sort button", () => {
+  test("has a sort button.", () => {
     const mockCallBack = jest.fn(onPrevMoveMock);
-    render(<GameHistory gameHistory={initialGame} currentMoveNumber={0} onPrevMove={mockCallBack} />);
+    render(<PreviousMoves gameHistory={initialGame} currentMoveNumber={0} onPrevMove={mockCallBack} />);
     const buttonElement = screen.getByRole("button", { name: "Sort Moves" });
 
     expect(buttonElement).toBeInTheDocument();
   });
   describe("History sort", () => {
-    test("starts with history sorted", () => {
+    test("starts with history sorted.", () => {
       const gameHistory = getAFullGame();
       const mockCallBack = jest.fn(onPrevMoveMock);
-      render(<GameHistory gameHistory={gameHistory} currentMoveNumber={0} onPrevMove={mockCallBack} />);
+      render(<PreviousMoves gameHistory={gameHistory} currentMoveNumber={0} onPrevMove={mockCallBack} />);
       const listElements = screen.getAllByRole("listitem");
 
       for (let index = 0; index < gameHistory.length; index++) {
@@ -46,10 +47,10 @@ describe("GameHistory component", () => {
       const olElement = screen.getByRole("list");
       expect(olElement).not.toHaveAttribute("reversed");
     });
-    test("displays history in reversed when sort button is clicked.", () => {
+    test("displays history in reverse when sort button is clicked.", () => {
       const gameHistory = getAFullGame();
       const mockCallBack = jest.fn(onPrevMoveMock);
-      render(<GameHistory gameHistory={gameHistory} currentMoveNumber={0} onPrevMove={mockCallBack} />);
+      render(<PreviousMoves gameHistory={gameHistory} currentMoveNumber={0} onPrevMove={mockCallBack} />);
 
       const sortButtonElement = screen.getByRole("button", { name: "Sort Moves" });
       userEvent.click(sortButtonElement);
@@ -57,21 +58,20 @@ describe("GameHistory component", () => {
 
       expect(listElements).toHaveAttribute("reversed");
     });
-    test("Displays an initial move", () => {
+    test("displays an initial move.", () => {
       const mockCallBack = jest.fn(onPrevMoveMock);
-      render(<GameHistory gameHistory={initialGameHistory} currentMoveNumber={0} onPrevMove={mockCallBack} />);
+      render(<PreviousMoves gameHistory={initialGameHistory} currentMoveNumber={0} onPrevMove={mockCallBack} />);
       const listElement = screen.getByRole("list");
 
       expect(listElement).toHaveTextContent(/initial/i);
     });
   });
-  test("current move has currentMove css style", () => {
+  test("current move has currentMove css style.", () => {
     const gameHistory = getAFullGame();
     const mockCallBack = jest.fn(onPrevMoveMock);
     const currMove = Math.floor(gameHistory.length / 2);
-    render(<GameHistory gameHistory={gameHistory} currentMoveNumber={currMove} onPrevMove={mockCallBack} />);
-
-    const currMoveButtonElement = screen.getByTestId(`Move Button ${currMove}`);
-    expect(currMoveButtonElement).toHaveClass(styles.currentMove);
+    render(<PreviousMoves gameHistory={gameHistory} currentMoveNumber={currMove} onPrevMove={mockCallBack} />);
+    const currMoveButton = screen.getByRole("button", { name: `Move #${currMove}` });
+    expect(currMoveButton).toHaveClass(cssClass.currentMove);
   });
 });
