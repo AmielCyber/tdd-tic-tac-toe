@@ -2,8 +2,21 @@
   width: 18rem;
   display: flex;
   flex-direction: column;
-  margin-left: 1rem
+  margin-left: auto;
+  margin-right: auto;
 }
 .historyHeader h2{
   text-align: center;
+}
+.historyHeader button {
+  border: 1.8px solid var(--board-border-color);
+  border-radius: 15px;
+  padding: 0.5rem 0.7rem;
+  background-color: transparent;
+  color: var(--board-border-color);
+  font-weight: bold;
+}
+.historyHeader button:hover {
+  background-color: var(--button-hover-color);
+  cursor: pointer;
 }
