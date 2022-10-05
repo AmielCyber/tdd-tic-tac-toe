@@ -25,9 +25,10 @@ type SquareProps = {
 const Square = ({ squareIndex, mark, highlight, onSelectSquare }: SquareProps) => {
   const buttonStyle = highlight ? HIGHLIGHTED : REGULAR;
   const playerStyle = getPlayerColor(mark);
+  const squareName = `Row ${Math.floor(squareIndex / 3) + 1}, Column ${(squareIndex % 3) + 1}`;
   return (
-    <button name={`square: ${squareIndex}`} className={buttonStyle} onClick={() => onSelectSquare(squareIndex)}>
-      <div className={playerStyle}>{mark}</div>
+    <button name={squareName} className={buttonStyle} onClick={() => onSelectSquare(squareIndex)}>
+      <p className={playerStyle}>{mark}</p>
     </button>
   );
 };
