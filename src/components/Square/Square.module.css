@@ -6,7 +6,7 @@
   font-size: 7rem;
   border: 5px solid var(--board-border-color);
   border-radius: 20px;
-  background-color: #FFF;
+  background-color: var(--background-color);
 }
 
 .square p{
@@ -14,15 +14,18 @@
   padding: 0;
 }
 
-
 .highlight {
-  background-color: rgb(255, 251, 0);
+  background-color: var(--winning-square-color);
+}
+
+.emptySquare:hover {
+  background-color: var(--button-hover-color);
 }
 
 .playerX {
-  color: var(--player-x-color)
+  color: var(--player-x-color);
 }
 
 .playerO {
-  color: var(--player-y-color)
+  color: var(--player-y-color);
 }
