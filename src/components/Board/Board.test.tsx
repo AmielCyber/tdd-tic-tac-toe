@@ -2,6 +2,7 @@ import { render, screen, cleanup } from "@testing-library/react";
 import Board from "./Board";
 import squareStyles from "../Square.module.css";
 import userEvent from "@testing-library/user-event";
+import type { SquareType } from "../../types/GameTypes";
 
 // Winning lines for tic-tac-toe.
 const WINNING_LINES: number[][] = [
@@ -25,6 +26,14 @@ const getInitialSquares = () => {
   return squares;
 };
 
+const getFilledWinningSquares = (xPlayer: boolean, highlightedIndices: number[]): SquareType[] => {
+  const squares = getInitialSquares();
+  for (const index of highlightedIndices) {
+    squares[index] = xPlayer ? "X" : "O";
+  }
+  return squares;
+};
+
 const onSelectSquare = (squareIndex: number) => {
   return squareIndex;
 };
@@ -40,10 +49,11 @@ describe("Board component", () => {
     expect(squareElements).toHaveLength(9);
   });
   test("highlights the squares in the highlightSet.", async () => {
-    const squares = getInitialSquares();
     const mockCallBack = jest.fn(onSelectSquare);
+    let playerX_IsNext = true;
 
     for (const line of WINNING_LINES) {
+      const squares = getFilledWinningSquares(playerX_IsNext, line);
       const highlightSet = new Set(line);
       render(<Board squares={squares} highlightSet={highlightSet} onSelectSquare={mockCallBack} />);
       const squareElements = await screen.findAllByRole("button");
@@ -53,6 +63,7 @@ describe("Board component", () => {
         expect(squareElement).toHaveClass(squareStyles.highlight);
       }
       cleanup();
+      playerX_IsNext = !playerX_IsNext;
     }
   });
   test("each button in the component passes its square number when it calls its callback", async () => {
