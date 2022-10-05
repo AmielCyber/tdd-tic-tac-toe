@@ -1,8 +1,8 @@
 import { useReducer, useState } from "react";
 // My imports.
-import { initialGameHistory, gameReducer } from "./store/GameReducer";
-import GameInformation from "./components/GameInformation/GameInformation";
-import Board from "./components/Board/Board";
+import GameStatus from "./components/GameStatus/GameStatus";
+import GameHistory from "./components/GameHistory/GameHistory";
+import { initialGameHistory, gameReducer } from "./reducer/GameReducer";
 import cssClass from "./Game.module.css";
 import type { Game as GameClass } from "./types/GameTypes";
 
@@ -34,19 +34,15 @@ const Game = () => {
 
   const currentGame: GameClass = gameHistory[moveNumber];
   return (
-    <div className={cssClass.game} data-testid="game">
-      <GameInformation
-        currentGame={currentGame}
-        gameHistory={gameHistory}
-        moveNumber={moveNumber}
-        onPrevMove={handleGoToPreviousMove}
-      />
-      <Board
-        squares={currentGame.getSquares}
-        highlightSet={currentGame.getWinningSet}
-        onSelectSquare={handleSquareClick}
-      />
-    </div>
+    <section className={cssClass.app}>
+      <h1 id="title" className={cssClass.title}>
+        Tic-Tac-Toe
+      </h1>
+      <div className={cssClass.game} data-testid="game">
+        <GameHistory gameHistory={gameHistory} currentMoveNumber={moveNumber} onPrevMove={handleGoToPreviousMove} />
+        <GameStatus currentGame={currentGame} onSelectSquare={handleSquareClick} />
+      </div>
+    </section>
   );
 };
 

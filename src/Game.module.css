@@ -2,3 +2,13 @@
   display: flex;
   gap: 2rem;
 }
+.app {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+}
+.title {
+  text-align: center;
+  align-content: center;
+  font-size: 2rem;
+}
