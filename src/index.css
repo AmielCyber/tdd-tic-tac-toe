@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+:root{
+  --player-x-color: #1100FF;
+  --player-y-color: #FF006E;
+  --board-border-color: #220090;
+  --button-color: #220090;
+  --prev-move-select-color: #ff0017;
+  --winning-square-color: #EEFF00;
+  --button-hover-color: #EBE5FF;
+  --background-color: #FFF;
+  --font-color:  #15005C;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,10 +21,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
 }
 
 h1, h2{
   font-family: "Rubik", "Ubuntu", "Roboto", sans-serif;
+  color: var(--font-color);
 }
 h1 {
   font-size: 2.5rem;
@@ -25,14 +40,30 @@ code {
     monospace;
 }
 
-:root{
-  --player-x-color: #1a65f0;
-  --player-y-color: #ed2a2a;
-  --board-border-color: rgb(0, 48, 96);
-  --button-color: rgb(12,  69, 133);
-  --prev-move-select-color: rgb(162, 7, 162);
-  --winning-square-color: rgb(238, 255, 0);
-  --button-hover-color:rgb(243, 249, 255); 
-  --background-color: #FFF;
-}
 
+@media (prefers-color-scheme: light){
+  :root{
+    --player-x-color: #1100FF;
+    --player-y-color: #FF006E;
+    --board-border-color: #220090;
+    --button-color: #220090;
+    --prev-move-select-color: #ff0017;
+    --winning-square-color: #EEFF00;
+    --button-hover-color: #EBE5FF;
+    --background-color: #FFF;
+    --font-color:  #15005C;
+  }
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --player-x-color: #50b7f2;
+    --player-y-color: #F9B4C9;
+    --board-border-color: #25EEB1;
+    --button-color: #25EEB1;
+    --prev-move-select-color: #ff848e;
+    --winning-square-color: #efe93c;
+    --button-hover-color: #043728;
+    --background-color: #000;
+    --font-color:  #B4F9E5;
+  }
+}

@@ -25,6 +25,7 @@
 .previousMoves p{
   margin: 0.2rem;
   font-family: "Lato", "Ubuntu";
+  color: var(--font-color);
 }
 .moveButton {
   margin-top: 0.2rem;
