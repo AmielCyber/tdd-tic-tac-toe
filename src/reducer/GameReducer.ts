@@ -105,21 +105,33 @@ export function handleSquareSelection(state: Game[], selectedSquare: number, cur
   return nextHistory;
 }
 
+export function handlePlayAgainSelection(state: Game[]): Game[] {
+  const newInitialGame = state.slice(0, 1);
+  return newInitialGame;
+}
+
 const initialSquares: SquareType[] = new Array(9);
 initialSquares.fill("");
 const initialGame: Game = new Game("X", "Pend", initialSquares, null, "");
 export const initialGameHistory: Game[] = [initialGame];
 
-export type GameStateAction = {
-  type: "selected-square";
+export type selectedSquareAction = {
+  type: "selected-square" | "selected-play-again";
   selectedSquareIndex: number;
   currentMoveNum: number;
 };
+export type selectedPlayAgainAction = {
+  type: "selected-play-again";
+};
+export type GameStateAction = selectedSquareAction | selectedPlayAgainAction;
 
 export function gameReducer(state: Game[], action: GameStateAction): Game[] {
   switch (action.type) {
     case "selected-square": {
       return handleSquareSelection(state, action.selectedSquareIndex, action.currentMoveNum);
+    }
+    case "selected-play-again": {
+      return handlePlayAgainSelection(state);
     }
     default: {
       throw new Error(`No action type in game reducer for action:\n\t${action}`);
