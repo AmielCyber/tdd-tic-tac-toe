@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   font-family: 'Fredoka One', system-ui, Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 7rem;
+  font-size: var(--square-font-size);
   border: 5px solid var(--board-border-color);
   border-radius: 20px;
   background-color: var(--background-color);

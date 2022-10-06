@@ -3,15 +3,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 :root{
-  --player-x-color: #1100FF;
-  --player-y-color: #FF006E;
-  --board-border-color: #220090;
-  --button-color: #220090;
-  --prev-move-select-color: #ff0017;
-  --winning-square-color: #EEFF00;
-  --button-hover-color: #EBE5FF;
-  --background-color: #FFF;
-  --font-color:  #15005C;
+    --player-x-color: #1100FF;
+    --player-y-color: #FF006E;
+    --board-border-color: #220090;
+    --button-color: #220090;
+    --prev-move-select-color: #DF003B;
+    --winning-square-color: #EEFF00;
+    --button-hover-color: #EBE5FF;
+    --background-color: #FFF;
+    --font-color:  #15005C;
+    --square-font-size: 7rem;
+    --square-border-radius: 20px;
+    --board-width: 30rem;
+    --board-height: 30rem;
 }
 
 body {
@@ -30,6 +34,7 @@ h1, h2{
 }
 h1 {
   font-size: 2.5rem;
+  margin: .8rem;
 }
 h2 {
   font-size: 1.5rem;
@@ -47,7 +52,7 @@ code {
     --player-y-color: #FF006E;
     --board-border-color: #220090;
     --button-color: #220090;
-    --prev-move-select-color: #ff0017;
+    --prev-move-select-color: #DF003B;
     --winning-square-color: #EEFF00;
     --button-hover-color: #EBE5FF;
     --background-color: #FFF;
@@ -63,7 +68,15 @@ code {
     --prev-move-select-color: #ff848e;
     --winning-square-color: #efe93c;
     --button-hover-color: #043728;
-    --background-color: #000;
+    --background-color: #1e1e1e;
     --font-color:  #B4F9E5;
+  }
+}
+/* Mobile changes */
+@media only screen and (max-width: 768px) {
+  :root {
+    --board-width: 20rem;
+    --board-height: 20rem;
+    --square-font-size: 4.5rem;
   }
 }
