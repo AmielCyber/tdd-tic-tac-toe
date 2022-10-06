@@ -9,11 +9,21 @@ import {
   handleSquareSelection,
   GameStateAction,
   gameReducer,
+  handlePlayAgainSelection,
 } from "./GameReducer";
 
 function getInitialSquares(): SquareType[] {
   return new Array(9).fill("");
 }
+
+const getAFullGame = () => {
+  const gameHistory: Game[] = initialGameHistory.slice();
+  for (let gameNum = 0; gameNum < 9; gameNum++) {
+    gameHistory.push(new Game("X", "Pend", new Array(9).fill(""), null, ""));
+  }
+  gameHistory.push(new Game("X", "A Tie", new Array(9).fill(""), null, ""));
+  return gameHistory;
+};
 
 describe("getNextPlayer", () => {
   test("returns 'X' when current player is O", () => {
@@ -166,6 +176,15 @@ describe("handleSquareSelection", () => {
         }
       }
     }
+  });
+});
+
+describe("handlePlayAgainSelection", () => {
+  const initialGameState = initialGameHistory;
+  const fullGameState = getAFullGame();
+  test("returns an initial game state.", () => {
+    const newState = handlePlayAgainSelection(fullGameState);
+    expect(newState).toEqual(initialGameState);
   });
 });
 
