@@ -26,7 +26,12 @@ const Square = ({ squareIndex, mark, highlight, onSelectSquare }: SquareProps) =
   const buttonStyle = getButtonClass(mark, highlight);
   const squareName = `Row ${Math.floor(squareIndex / 3) + 1}, Column ${(squareIndex % 3) + 1}`;
   return (
-    <button name={squareName} className={buttonStyle} onClick={() => onSelectSquare(squareIndex)}>
+    <button
+      aria-label={squareName}
+      name={squareName}
+      className={buttonStyle}
+      onClick={() => onSelectSquare(squareIndex)}
+    >
       <p>{mark}</p>
     </button>
   );
