@@ -1,7 +1,9 @@
 import { screen, render, cleanup } from "@testing-library/react";
+// My imports.
 import GameStatus from "./GameStatus";
 import { initialGameHistory } from "../../reducer/GameReducer";
-import { Game, GameStatus as gameStatus } from "../../types/GameTypes";
+import { Game } from "../../types/GameTypes";
+import type { GameStatus as gameStatus } from "../../types/GameTypes";
 import cssClass from "./GameStatus.module.css";
 
 const onPrevMoveMock = (prevMove: number) => prevMove;
@@ -21,7 +23,6 @@ describe("GameStatus component", () => {
         onSelectPlayAgain={mockOnSelectPlayAgain}
       />
     );
-
     const gameStatusComponent = screen.getByTestId("GameStatus");
     expect(gameStatusComponent).toHaveClass(cssClass.gameStatus);
   });

@@ -1,10 +1,10 @@
 import { useReducer, useState } from "react";
 // My imports.
-import GameStatus from "./components/GameStatus/GameStatus";
-import GameHistory from "./components/GameHistory/GameHistory";
 import { initialGameHistory, gameReducer } from "./reducer/GameReducer";
+import { Game as GameClass } from "./types/GameTypes";
+import GameHistory from "./components/GameHistory/GameHistory";
+import GameStatus from "./components/GameStatus/GameStatus";
 import cssClass from "./Game.module.css";
-import type { Game as GameClass } from "./types/GameTypes";
 
 const Game = () => {
   const [gameHistory, dispatch] = useReducer(gameReducer, initialGameHistory);

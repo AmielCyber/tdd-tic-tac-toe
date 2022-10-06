@@ -1,4 +1,5 @@
-import { Player, SquareType, GameStatus, Game } from "../types/GameTypes";
+import { Game } from "../types/GameTypes";
+import type { Player, SquareType, GameStatus } from "../types/GameTypes";
 
 // Winning lines for tic-tac-toe.
 const WINNING_LINES: number[][] = [

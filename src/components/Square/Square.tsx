@@ -1,3 +1,4 @@
+// My imports.
 import type { SquareType } from "../../types/GameTypes";
 import cssClass from "./Square.module.css";
 

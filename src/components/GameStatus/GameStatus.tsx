@@ -1,7 +1,8 @@
-import Board from "../Board/Board";
+// My imports.
 import DisplayStatus from "./DisplayStatus";
+import Board from "../Board/Board";
 import cssStyles from "./GameStatus.module.css";
-import type { Game } from "../../types/GameTypes";
+import { Game } from "../../types/GameTypes";
 
 type GameStatusProps = {
   currentGame: Game;

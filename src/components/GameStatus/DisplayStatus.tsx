@@ -1,3 +1,4 @@
+// My import.
 import type { GameStatus, Player } from "../../types/GameTypes";
 
 function getStatusMessageElement(gameStatus: GameStatus, nextPlayer: Player): JSX.Element {

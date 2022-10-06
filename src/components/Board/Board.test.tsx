@@ -1,7 +1,8 @@
 import { render, screen, cleanup } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+// My imports.
 import Board from "./Board";
 import squareStyles from "../Square.module.css";
-import userEvent from "@testing-library/user-event";
 import type { SquareType } from "../../types/GameTypes";
 
 // Winning lines for tic-tac-toe.
@@ -45,7 +46,6 @@ describe("Board component", () => {
 
     render(<Board squares={squares} highlightSet={null} onSelectSquare={mockCallBack} />);
     const squareElements = await screen.findAllByRole("button");
-
     expect(squareElements).toHaveLength(9);
   });
   test("highlights the squares in the highlightSet.", async () => {
