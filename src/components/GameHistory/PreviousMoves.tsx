@@ -35,7 +35,7 @@ const PreviousMoves = ({ gameHistory, currentMoveNumber, onPrevMove }: GameHisto
   }
 
   return (
-    <div data-testid="previousMoves" className={cssClass.previousMoves}>
+    <div data-testid="PreviousMoves" className={cssClass.previousMoves}>
       <button
         id="Sort Moves"
         name="Sort Moves"

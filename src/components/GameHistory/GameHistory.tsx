@@ -1,8 +1,8 @@
 import { useState } from "react";
 // My imports.
+import { Game } from "../../types/GameTypes";
 import PreviousMoves from "./PreviousMoves";
 import cssClass from "./GameHistory.module.css";
-import { Game } from "../../types/GameTypes";
 
 type GameHistoryProps = {
   gameHistory: Game[];
@@ -18,7 +18,7 @@ const GameHistory = ({ gameHistory, currentMoveNumber, onPrevMove }: GameHistory
   };
 
   return (
-    <section id="Game History" className={cssClass.history}>
+    <section data-testid="GameHistory" className={cssClass.history}>
       <div className={cssClass.historyHeader}>
         <h2>Game History</h2>
         <button name="Toggle History" onClick={handleClick}>

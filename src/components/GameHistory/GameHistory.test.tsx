@@ -7,7 +7,7 @@ import { Game } from "../../types/GameTypes";
 
 const onPrevMoveMock = (prevMove: number) => prevMove;
 
-const getAFullGame = () => {
+const getAFullGame = (): Game[] => {
   const gameHistory: Game[] = initialGameHistory.slice();
   for (let gameNum = 0; gameNum < 9; gameNum++) {
     gameHistory.push(new Game("X", "Pend", new Array(9).fill(""), null, ""));
@@ -34,13 +34,13 @@ describe("GameHistory component", () => {
     expect(toggleHistoryButton).toHaveTextContent(/show history/i);
   });
   test("showHistory is not shown on initial render.", () => {
-    const previousMoveComponent = screen.queryByTestId("previousMoves");
+    const previousMoveComponent = screen.queryByTestId("PreviousMoves");
     expect(previousMoveComponent).not.toBeInTheDocument();
   });
   test("clicking the button when is 'Show History', renders PreviousMoves component.", () => {
     const toggleHistoryButton = screen.getByRole("button");
     userEvent.click(toggleHistoryButton);
-    const previousMoveComponent = screen.queryByTestId("previousMoves");
+    const previousMoveComponent = screen.queryByTestId("PreviousMoves");
     expect(previousMoveComponent).toBeInTheDocument();
   });
 });

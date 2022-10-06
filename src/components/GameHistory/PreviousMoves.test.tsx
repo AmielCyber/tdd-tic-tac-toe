@@ -8,7 +8,7 @@ import cssClass from "./PreviousMoves.module.css";
 
 const onPrevMoveMock = (prevMove: number) => prevMove;
 
-const getAFullGame = () => {
+const getAFullGame = (): Game[] => {
   const gameHistory: Game[] = initialGameHistory.slice();
   for (let gameNum = 0; gameNum < 9; gameNum++) {
     gameHistory.push(new Game("X", "Pend", new Array(9).fill(""), null, ""));
@@ -19,18 +19,16 @@ const getAFullGame = () => {
 
 describe("PreviousMoves component", () => {
   const initialGame = initialGameHistory.slice();
-  test("has data-testid previousMoves for GameHistory testing.", () => {
+  test("has data-testid PreviousMoves for GameHistory testing.", () => {
     const mockCallBack = jest.fn(onPrevMoveMock);
     render(<PreviousMoves gameHistory={initialGame} currentMoveNumber={0} onPrevMove={mockCallBack} />);
-    const previousMovesComponent = screen.getByTestId("previousMoves");
-
+    const previousMovesComponent = screen.getByTestId("PreviousMoves");
     expect(previousMovesComponent).toBeInTheDocument();
   });
   test("has a sort button.", () => {
     const mockCallBack = jest.fn(onPrevMoveMock);
     render(<PreviousMoves gameHistory={initialGame} currentMoveNumber={0} onPrevMove={mockCallBack} />);
     const buttonElement = screen.getByRole("button", { name: "Sort Moves" });
-
     expect(buttonElement).toBeInTheDocument();
   });
   describe("History sort", () => {
@@ -55,14 +53,12 @@ describe("PreviousMoves component", () => {
       const sortButtonElement = screen.getByRole("button", { name: "Sort Moves" });
       userEvent.click(sortButtonElement);
       const listElements = screen.getByRole("list");
-
       expect(listElements).toHaveAttribute("reversed");
     });
     test("displays an initial move.", () => {
       const mockCallBack = jest.fn(onPrevMoveMock);
       render(<PreviousMoves gameHistory={initialGameHistory} currentMoveNumber={0} onPrevMove={mockCallBack} />);
       const listElement = screen.getByRole("list");
-
       expect(listElement).toHaveTextContent(/initial/i);
     });
   });
