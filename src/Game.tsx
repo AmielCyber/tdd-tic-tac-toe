@@ -12,7 +12,6 @@ const Game = () => {
 
   const handleSquareClick = (indexNumber: number) => {
     const currentGame: GameClass = gameHistory[moveNumber];
-
     if (currentGame.getSquares[indexNumber] !== "" || currentGame.getStatus !== "Pend") {
       // Do not do anything if user already selected a square or the game is already over.
       return;
@@ -32,6 +31,13 @@ const Game = () => {
     setMoveNumber(prevMove);
   };
 
+  const handlePlayAgain = () => {
+    dispatch({
+      type: "selected-play-again",
+    });
+    setMoveNumber(0);
+  };
+
   const currentGame: GameClass = gameHistory[moveNumber];
   return (
     <section className={cssClass.app}>
@@ -40,7 +46,7 @@ const Game = () => {
       </h1>
       <div className={cssClass.game} data-testid="game">
         <GameHistory gameHistory={gameHistory} currentMoveNumber={moveNumber} onPrevMove={handleGoToPreviousMove} />
-        <GameStatus currentGame={currentGame} onSelectSquare={handleSquareClick} />
+        <GameStatus currentGame={currentGame} onSelectSquare={handleSquareClick} onSelectPlayAgain={handlePlayAgain} />
       </div>
     </section>
   );
