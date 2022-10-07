@@ -29,14 +29,10 @@ const Game = () => {
     if (prevMove < 0 || prevMove >= gameHistory.length) {
       throw new Error("Out of bounds move selected!");
     }
-    setMoveNumber(prevMove);
     if (topOfPageRef && topOfPageRef.current) {
-      topOfPageRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
+      topOfPageRef.current.scrollIntoView(true);
     }
+    setMoveNumber(prevMove);
   };
 
   const handlePlayAgain = () => {
