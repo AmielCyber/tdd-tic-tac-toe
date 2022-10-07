@@ -75,8 +75,8 @@ code {
 /* Mobile changes */
 @media only screen and (max-width: 768px) {
   :root {
-    --board-width: 18rem;
-    --board-height: 18rem;
+    --board-width: 20rem;
+    --board-height: 20rem;
     --square-font-size: 4rem;
   }
 }

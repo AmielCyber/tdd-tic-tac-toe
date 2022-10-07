@@ -1,9 +1,5 @@
 .square {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: 'Fredoka One', system-ui, Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: var(--square-font-size);
   border: 5px solid var(--board-border-color);
   border-radius: 20px;
   background-color: var(--background-color);
@@ -12,6 +8,7 @@
 .square p{
   margin: 0;
   padding: 0;
+  font-size: var(--square-font-size);
 }
 
 .highlight {
