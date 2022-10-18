@@ -12,6 +12,7 @@
   background-color: transparent;
   color: var(--board-border-color);
   font-weight: bold;
+  font-size: 1rem;
 }
 .sortButton:hover, .moveButton:hover {
   cursor: pointer;

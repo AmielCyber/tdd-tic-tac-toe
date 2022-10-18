@@ -18,6 +18,7 @@
   background-color: transparent;
   color: var(--board-border-color);
   font-weight: bold;
+  font-size: 1rem;
   margin-right: auto;
 }
 .historyHeader button:hover {
