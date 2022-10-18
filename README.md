@@ -8,7 +8,7 @@ project has better styling and many other features mentioned below.
 
 ## Demo
 
-### [TDD Tic-Tac-Toe Github Page](http://AmielCyber.github.io/tdd-tic-tac-toe)
+### [Live Demo](http://AmielCyber.github.io/tdd-tic-tac-toe)
 
 ### Screenshots
 
