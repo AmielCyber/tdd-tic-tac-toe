@@ -15,12 +15,13 @@ project has better styling and many other features mentioned below.
 #### Light Theme
 
 ![Light Theme Desktop Preview](/assets/desktopLight.png)
-![Light Theme Mobile Preview](/assets/mobileLight.png)
 
 #### Dark Theme
 
 ![Dark Theme Desktop Preview](/assets/desktopDark.png)
-![Dark Theme Mobile Preview](/assets/mobileDark.png)
+
+### Mobile Demo
+![Mobile Preview](/assets/mobileDemo.gif)
 
 ## Features
 
